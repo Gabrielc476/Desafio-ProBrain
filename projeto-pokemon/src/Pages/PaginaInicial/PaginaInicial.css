@@ -1,6 +1,0 @@
-.cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 colunas de tamanho igual */
-    grid-template-rows: repeat(5, 1fr); /* 5 linhas de tamanho igual */
-    gap: 2em;
-  }
