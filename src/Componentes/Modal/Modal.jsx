@@ -6,16 +6,24 @@ const Modal = ({ pokemon, onClose }) => {
     <div className="modal">
       <div className="modal-content">
         <div className="cabecalho">
-          <h2>{pokemon.name}</h2>
+          <h2 className="titulo">{pokemon.name}</h2>
           <button onClick={onClose} className="modal-close">
-            Fechar
+            ✕
           </button>
         </div>
-        <div className="modalMeio">
-          <img src={pokemon.images.small} alt="" />
-          <div className="tipoContainer">
+        <div className="modal-meio">
+          <div className="imagem-container">
+            <img
+              src={pokemon.images.small}
+              alt={pokemon.name}
+              className="imagem"
+            />
+          </div>
+          <div className="tipos">
             {pokemon.types.map((tipo) => (
-              <p className="tipo">{tipo}</p>
+              <span className="tipo" key={tipo}>
+                {tipo}
+              </span>
             ))}
           </div>
         </div>
@@ -25,11 +33,8 @@ const Modal = ({ pokemon, onClose }) => {
         <div className="descricao">
           <p>{pokemon.flavorText}</p>
         </div>
-        <div className="Artista">
-          <strong>
-            <p>Artista</p>
-          </strong>
-          <p className="artistaNome">{pokemon.artist}</p>
+        <div className="artista">
+          <strong>Artista:</strong> <p>{pokemon.artist}</p>
         </div>
       </div>
     </div>

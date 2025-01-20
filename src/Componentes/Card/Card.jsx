@@ -1,5 +1,7 @@
 import React from "react";
+
 import "./Card.css";
+import IconeComponente from "./IconeComponente";
 const Card = ({ key, pokemon, onClick }) => {
   return (
     <div className="card" onClick={onClick}>
@@ -12,12 +14,12 @@ const Card = ({ key, pokemon, onClick }) => {
             <strong>{pokemon.name}</strong>
           </h3>
           {pokemon.types.map((tipo) => (
-            <p>{tipo}</p>
+            <IconeComponente tipo={tipo} />
           ))}
         </div>
         <div className="cardDados">
           {pokemon.types.map((tipo) => (
-            <p>Tipo {tipo}</p>
+            <p>Type {tipo}</p>
           ))}
           {pokemon.rarity}
         </div>

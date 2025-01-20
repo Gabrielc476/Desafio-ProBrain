@@ -13,16 +13,87 @@
 
 .modal-content {
   background: white;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 500px;
-  width: 100%;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.titulo {
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .modal-close {
-  background: red;
-  color: white;
+  background: none;
   border: none;
-  padding: 10px;
+  font-size: 20px;
   cursor: pointer;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+  color: red;
+}
+
+.modal-meio {
+  margin: 20px 0;
+}
+
+.imagem-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f4f4f4;
+  border-radius: 15px;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 10px;
+}
+
+.imagem {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+}
+
+.tipos {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.tipo {
+  background: #ddd;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 14px;
+  color: #333;
+}
+
+.dados {
+  margin: 20px 0;
+}
+
+.descricao {
+  font-size: 14px;
+  color: #666;
+  margin: 20px 0;
+}
+
+.artista {
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
 }
