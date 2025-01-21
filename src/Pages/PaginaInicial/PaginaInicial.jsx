@@ -8,7 +8,8 @@ import CategoriaInput from "../../Componentes/CategoriaInput/CategoriaInput";
 import LoadingPokebola from "../../Componentes/LoadingPokebola/LoadingPokebola";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import CatchingPokemonTwoToneIcon from "@mui/icons-material/CatchingPokemonTwoTone";
-import Paginacao from "../../Componentes/Paginacao/Paginacao"; // Importando o componente de paginação
+import Paginacao from "../../Componentes/Paginacao/Paginacao";
+import { applyFilters } from "../../Strategies/ApplyFilters"; // Importando a função de Strategy
 
 const PaginaInicial = () => {
   const [pokemons, setPokemons] = useState([]);
@@ -19,7 +20,7 @@ const PaginaInicial = () => {
   const [modal, setModal] = useState(false);
   const [selectedPokemon, setSelectedPokemon] = useState(null);
   const [filtroCategoria, setFiltroCategoria] = useState({});
-  const [mostrarCategorias, setMostrarCategorias] = useState(true); // Novo estado
+  const [mostrarCategorias, setMostrarCategorias] = useState(true);
 
   async function pegarPokemons() {
     try {
@@ -37,33 +38,9 @@ const PaginaInicial = () => {
     pegarPokemons();
   }, []);
 
-  const pokemonsFiltrados = pokemons.filter((pokemon) => {
-    const nomeValido = pokemon.name
-      .toLowerCase()
-      .includes(filtroPesquisa.toLowerCase());
-    const filtrosAtivos = Object.keys(filtroCategoria).some(
-      (key) => filtroCategoria[key]?.length > 0
-    );
-    if (!filtrosAtivos) return nomeValido;
-    const categoriasValidas = Object.keys(filtroCategoria).every(
-      (categoria) => {
-        const valoresSelecionados = filtroCategoria[categoria];
-        if (!valoresSelecionados || valoresSelecionados.length === 0)
-          return true;
-        switch (categoria) {
-          case "tipos":
-            return pokemon.types?.some((tipo) =>
-              valoresSelecionados.includes(tipo)
-            );
-          case "raridades":
-            return valoresSelecionados.includes(pokemon.rarity);
-          default:
-            return true;
-        }
-      }
-    );
-    return nomeValido && categoriasValidas;
-  });
+  const pokemonsFiltrados = pokemons.filter((pokemon) =>
+    applyFilters(pokemon, filtroPesquisa, filtroCategoria)
+  );
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
