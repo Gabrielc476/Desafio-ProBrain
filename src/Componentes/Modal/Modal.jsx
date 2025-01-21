@@ -19,9 +19,9 @@ const Modal = ({ pokemon, onClose }) => {
               className="imagem"
             />
           </div>
-          <div className="tipos">
+          <div className="tipos-modal">
             {pokemon.types.map((tipo) => (
-              <span className="tipo" key={tipo}>
+              <span className="tipo-modal" key={tipo}>
                 {tipo}
               </span>
             ))}

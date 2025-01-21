@@ -9,7 +9,9 @@ const DadosCarta = ({ pokemon }) => {
   return (
     <div className="dadosCarta">
       <Ataques attacks={pokemon.attacks} />
+      <hr className="linha" />
       <Fraquezas weaknesses={pokemon.weaknesses} />
+      <hr className="linha" />
       <Habilidades abilities={pokemon.abilities} />
     </div>
   );

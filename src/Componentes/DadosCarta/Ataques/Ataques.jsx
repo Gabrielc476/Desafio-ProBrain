@@ -4,7 +4,7 @@ import "./Ataques.css";
 const Ataques = ({ attacks }) => {
   return (
     <div className="ataques">
-      <div>
+      <div className="tituloDados">
         <p className="icone">icone</p>
         <strong>
           <p>ataques</p>

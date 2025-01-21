@@ -1,5 +1,6 @@
 import React from "react";
 import { tipos, raridades } from "./Categorias";
+import "./CategoriaInput.css";
 
 const CategoriaInput = ({ setFiltro }) => {
   // Atualiza os filtros selecionados com base nas checkboxes
@@ -21,7 +22,6 @@ const CategoriaInput = ({ setFiltro }) => {
 
   return (
     <div className="categorias">
-      {/* Filtro por Tipo */}
       <div className="categoria">
         <div className="tipo">
           <p>Types</p>
@@ -40,21 +40,22 @@ const CategoriaInput = ({ setFiltro }) => {
         </div>
       </div>
 
-      {/* Filtro por Raridade */}
-      <div className="raridade">
-        <p>Rarities</p>
-        {raridades.map((raridade, index) => (
-          <div key={index}>
-            <label>
-              <input
-                type="checkbox"
-                name={raridade}
-                onChange={(e) => handleCheckboxChange(e, "raridades")}
-              />
-              {raridade}
-            </label>
-          </div>
-        ))}
+      <div className="categoria">
+        <div className="raridade">
+          <p>Rarities</p>
+          {raridades.map((raridade, index) => (
+            <div key={index}>
+              <label>
+                <input
+                  type="checkbox"
+                  name={raridade}
+                  onChange={(e) => handleCheckboxChange(e, "raridades")}
+                />
+                {raridade}
+              </label>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

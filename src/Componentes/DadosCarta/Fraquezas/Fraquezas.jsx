@@ -4,7 +4,7 @@ import "./Fraquezas.css";
 const Fraquezas = ({ weaknesses }) => {
   return (
     <div className="fraquezas">
-      <div>
+      <div className="tituloDados">
         <p className="icone">icone</p>
         <strong>
           <p>fraquezas</p>

@@ -1,0 +1,25 @@
+.inputContainer {
+  display: flex;
+}
+
+.pesquisaInput {
+  width: 100%;
+  max-width: 300px; /* Ajusta o tamanho máximo */
+  height: 40px;
+  padding: 0 15px;
+  font-size: 14px;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 25px; /* Bordas arredondadas */
+  outline: none;
+  background-color: #f9f9f9; /* Fundo leve */
+}
+
+.pesquisaInput::placeholder {
+  color: #aaa;
+}
+
+.pesquisaInput:focus {
+  border-color: #999;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15); /* Realce no foco */
+}

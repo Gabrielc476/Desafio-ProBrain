@@ -13,6 +13,7 @@
   align-items: center;
   gap: 0.5em;
   margin-top: 20px;
+  margin-bottom: 20px; /* Garante que a paginação tenha um espaçamento adequado abaixo */
 }
 
 .pagination button {
@@ -45,4 +46,42 @@
 .pagination button:hover:not(:disabled),
 .pagination .page-number:hover {
   background-color: #0056b3;
+}
+
+.filtragem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 5em;
+  margin-bottom: 3em;
+  margin-right: 6em;
+}
+
+.toggleCategoriasButton {
+  background: none;
+}
+
+.filtroCategoriaTitulo {
+  display: flex;
+  flex-direction: row;
+}
+
+.listaPokemons {
+  display: flex;
+  flex-direction: column; /* Alterado para coluna para garantir o layout desejado */
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Garantir que a lista ocupe toda a largura */
+}
+
+.listaPokemons .cards {
+  width: 80%; /* Ajuste da largura para não ficar colado nas bordas */
+}
+
+.total {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  align-items: center;
+  gap: 0.5rem;
 }

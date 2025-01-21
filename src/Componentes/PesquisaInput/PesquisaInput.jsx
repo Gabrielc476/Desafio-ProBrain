@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./PesquisaInput.css";
 
 const PesquisaInput = ({ setFiltroPesquisa }) => {
   const [nome, setNome] = useState("");
@@ -14,11 +15,11 @@ const PesquisaInput = ({ setFiltroPesquisa }) => {
       <div className="inputContainer">
         <input
           type="text"
-          placeholder="Pesquise o nome do Pokémon"
+          placeholder="Pesquise um pokemon"
           value={nome}
           onChange={handleChange}
+          className="pesquisaInput"
         />
-        <button type="submit">Pesquisar</button>
       </div>
     </form>
   );

@@ -6,16 +6,20 @@ import Modal from "../../Componentes/Modal/Modal";
 import PesquisaInput from "../../Componentes/PesquisaInput/PesquisaInput";
 import CategoriaInput from "../../Componentes/CategoriaInput/CategoriaInput";
 import LoadingPokebola from "../../Componentes/LoadingPokebola/LoadingPokebola";
+import FilterListIcon from "@mui/icons-material/FilterList";
+import CatchingPokemonTwoToneIcon from "@mui/icons-material/CatchingPokemonTwoTone";
+import Paginacao from "../../Componentes/Paginacao/Paginacao"; // Importando o componente de paginação
 
 const PaginaInicial = () => {
   const [pokemons, setPokemons] = useState([]);
-  const [loading, setLoading] = useState(true); // Estado do loading
+  const [loading, setLoading] = useState(true);
   const [filtroPesquisa, setFiltroPesquisa] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 20;
   const [modal, setModal] = useState(false);
   const [selectedPokemon, setSelectedPokemon] = useState(null);
   const [filtroCategoria, setFiltroCategoria] = useState({});
+  const [mostrarCategorias, setMostrarCategorias] = useState(true); // Novo estado
 
   async function pegarPokemons() {
     try {
@@ -66,7 +70,6 @@ const PaginaInicial = () => {
   const currentPokemons = pokemonsFiltrados.slice(startIndex, endIndex);
 
   const totalPages = Math.ceil(pokemonsFiltrados.length / itemsPerPage);
-  const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   const abrirModal = (pokemon) => {
     setSelectedPokemon(pokemon);
@@ -86,12 +89,27 @@ const PaginaInicial = () => {
         <>
           <div className="filtragem">
             <PesquisaInput setFiltroPesquisa={setFiltroPesquisa} />
-            <div className="filtragemCategoria">
-              <CategoriaInput setFiltro={setFiltroCategoria} />
+            <div className="filtroCategoria">
+              <div className="filtroCategoriaTitulo">
+                <FilterListIcon
+                  onClick={() => setMostrarCategorias((prev) => !prev)}
+                  className="filtroButton"
+                />
+                <p>filtros</p>
+              </div>
+
+              {mostrarCategorias && (
+                <div className="filtragemCategoria">
+                  <CategoriaInput setFiltro={setFiltroCategoria} />
+                </div>
+              )}
             </div>
           </div>
           <div className="listaPokemons">
-            <p>Total: {pokemonsFiltrados.length} pokémons</p>
+            <div className="total">
+              <CatchingPokemonTwoToneIcon />
+              <p>Total: {pokemonsFiltrados.length} pokémons</p>
+            </div>
             <div className="cards">
               {currentPokemons.map((pokemon) => (
                 <Card
@@ -101,33 +119,11 @@ const PaginaInicial = () => {
                 />
               ))}
             </div>
-            <div className="pagination">
-              <button
-                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-                disabled={currentPage === 1}
-              >
-                {"<"}
-              </button>
-              {pageNumbers.map((page) => (
-                <button
-                  key={page}
-                  className={`page-number ${
-                    page === currentPage ? "active" : ""
-                  }`}
-                  onClick={() => setCurrentPage(page)}
-                >
-                  {page}
-                </button>
-              ))}
-              <button
-                onClick={() =>
-                  setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-                }
-                disabled={currentPage === totalPages}
-              >
-                {">"}
-              </button>
-            </div>
+            <Paginacao
+              currentPage={currentPage}
+              totalPages={totalPages}
+              setCurrentPage={setCurrentPage}
+            />
           </div>
           {modal && selectedPokemon && (
             <Modal pokemon={selectedPokemon} onClose={fecharModal} />
