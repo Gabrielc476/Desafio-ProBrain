@@ -9,7 +9,7 @@ import LoadingPokebola from "../../Componentes/LoadingPokebola/LoadingPokebola";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import CatchingPokemonTwoToneIcon from "@mui/icons-material/CatchingPokemonTwoTone";
 import Paginacao from "../../Componentes/Paginacao/Paginacao";
-import { applyFilters } from "../../Strategies/ApplyFilters"; // Importando a função de Strategy
+import { aplicarFiltros } from "../../Strategies/aplicarFiltros"; // Importando a função de Strategy
 
 const PaginaInicial = () => {
   const [pokemons, setPokemons] = useState([]);
@@ -39,7 +39,7 @@ const PaginaInicial = () => {
   }, []);
 
   const pokemonsFiltrados = pokemons.filter((pokemon) =>
-    applyFilters(pokemon, filtroPesquisa, filtroCategoria)
+    aplicarFiltros(pokemon, filtroPesquisa, filtroCategoria)
   );
 
   const startIndex = (currentPage - 1) * itemsPerPage;
