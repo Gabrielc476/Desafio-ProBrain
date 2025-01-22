@@ -1,5 +1,5 @@
 import React from "react";
-import "./LoadingPokebola.css";
+import "./loadingPokebola.css";
 
 const LoadingPokebola = () => {
   return (

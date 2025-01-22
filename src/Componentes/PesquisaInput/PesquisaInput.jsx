@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./PesquisaInput.css";
+import "./pesquisaInput.css";
 
 const PesquisaInput = ({ setFiltroPesquisa }) => {
   const [nome, setNome] = useState("");

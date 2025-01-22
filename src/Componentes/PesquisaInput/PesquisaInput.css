@@ -4,7 +4,7 @@
 
 .pesquisaInput {
   width: 100%;
-  max-width: 300px; /* Ajusta o tamanho máximo */
+  max-width: 500px; /* Ajusta o tamanho máximo */
   height: 40px;
   padding: 0 15px;
   font-size: 14px;

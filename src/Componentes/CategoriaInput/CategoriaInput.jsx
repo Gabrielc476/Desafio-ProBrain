@@ -1,6 +1,6 @@
 import React from "react";
-import { tipos, raridades } from "./Categorias";
-import "./CategoriaInput.css";
+import { tipos, raridades } from "./categorias";
+import "./categoriaInput.css";
 
 const CategoriaInput = ({ setFiltro }) => {
   // Atualiza os filtros selecionados com base nas checkboxes
@@ -9,6 +9,8 @@ const CategoriaInput = ({ setFiltro }) => {
 
     setFiltro((prevFiltro) => {
       const valoresAtuais = prevFiltro[categoria] || [];
+      console.log(e, categoria);
+      console.log(name);
       const novosValores = checked
         ? [...valoresAtuais, name]
         : valoresAtuais.filter((valor) => valor !== name);

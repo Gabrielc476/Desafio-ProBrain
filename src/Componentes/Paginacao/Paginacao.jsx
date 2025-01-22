@@ -1,28 +1,30 @@
 import React from "react";
 
-const Paginacao = ({ currentPage, totalPages, setCurrentPage }) => {
-  const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
+const Paginacao = ({ paginaAtual, paginasTotais, setPaginaAtual }) => {
+  const numerosPaginas = Array.from({ length: paginasTotais }, (_, i) => i + 1);
 
   return (
-    <div className="pagination">
+    <div className="paginacao">
       <button
-        onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-        disabled={currentPage === 1}
+        onClick={() => setPaginaAtual((prev) => Math.max(prev - 1, 1))}
+        disabled={paginaAtual === 1}
       >
         {"<"}
       </button>
-      {pageNumbers.map((page) => (
+      {numerosPaginas.map((pagina) => (
         <button
-          key={page}
-          className={`page-number ${page === currentPage ? "active" : ""}`}
-          onClick={() => setCurrentPage(page)}
+          key={pagina}
+          className={`numeroPagina ${pagina === paginaAtual ? "active" : ""}`}
+          onClick={() => setPaginaAtual(pagina)}
         >
-          {page}
+          {pagina}
         </button>
       ))}
       <button
-        onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-        disabled={currentPage === totalPages}
+        onClick={() =>
+          setPaginaAtual((prev) => Math.min(prev + 1, paginasTotais))
+        }
+        disabled={paginaAtual === paginasTotais}
       >
         {">"}
       </button>

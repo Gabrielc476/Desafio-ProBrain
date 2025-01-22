@@ -1,7 +1,7 @@
 import React from "react";
 
-import "./Card.css";
-import IconeComponente from "./IconeComponente";
+import "./card.css";
+import IconeComponente from "./iconeComponente";
 const Card = ({ key, pokemon, onClick }) => {
   return (
     <div className="card" onClick={onClick}>

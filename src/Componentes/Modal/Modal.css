@@ -11,7 +11,7 @@
   z-index: 1000;
 }
 
-.modal-content {
+.modalConteudo {
   background: white;
 
   border-radius: 15px;
@@ -38,7 +38,7 @@
   font-weight: bold;
 }
 
-.modal-close {
+.modalFechar {
   background: none;
   border: none;
   font-size: 20px;
@@ -47,22 +47,22 @@
   transition: color 0.3s ease;
 }
 
-.modal-close:hover {
+.modalFechar:hover {
   color: red;
 }
 
-.modal-meio {
+.modalMeio {
   margin: 20px 0;
 }
 
-.imagem-container {
+.imagemContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   background: #f4f4f4;
   border-radius: 15px;
-  width: 150px;
-  height: 150px;
+  width: 300px;
+  height: 300px;
   margin: 0 auto 10px;
 }
 
@@ -72,14 +72,14 @@
   border-radius: 10px;
 }
 
-.tipos-modal {
+.tiposModal {
   display: flex;
   justify-content: center;
   gap: 10px;
   margin-top: 10px;
 }
 
-.tipo-modal {
+.tipoModal {
   background: #ddd;
   padding: 5px 10px;
   border-radius: 15px;

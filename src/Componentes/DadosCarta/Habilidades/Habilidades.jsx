@@ -1,23 +1,29 @@
 import React from "react";
-import "./Habilidades.css";
+import CatchingPokemonTwoToneIcon from "@mui/icons-material/CatchingPokemonTwoTone";
 
-const Habilidades = ({ abilities }) => {
+const Habilidades = ({ habilidades }) => {
   return (
     <div className="habilidades">
       <div className="tituloDados">
-        <p className="icone">icone</p>
+        <p className="icone">
+          <CatchingPokemonTwoToneIcon />
+        </p>
         <strong>
-          <p>Habilidades</p>
+          <h2>Abilities</h2>
         </strong>
       </div>
       <div className="habilidadeDados">
-        {abilities.map((habilidade) => (
-          <div className="habilidade">
-            <p>{habilidade.name}</p>
-            <p>{habilidade.type}</p>
-            <p>{habilidade.text}</p>
-          </div>
-        ))}
+        {habilidades && habilidades.length > 0 ? (
+          habilidades.map((habilidade, index) => (
+            <div className="habilidade" key={index}>
+              <p>{habilidade.name}</p>
+              <p>{habilidade.type}</p>
+              <p>{habilidade.text}</p>
+            </div>
+          ))
+        ) : (
+          <p>Este Pokémon não possui habilidades.</p>
+        )}
       </div>
     </div>
   );

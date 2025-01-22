@@ -1,27 +1,27 @@
-import DadosCarta from "../DadosCarta/DadosCarta";
-import "./Modal.css";
+import DadosCarta from "../DadosCarta/dadosCarta";
+import "./modal.css";
 
 const Modal = ({ pokemon, onClose }) => {
   return (
     <div className="modal">
-      <div className="modal-content">
+      <div className="modalConteudo">
         <div className="cabecalho">
           <h2 className="titulo">{pokemon.name}</h2>
-          <button onClick={onClose} className="modal-close">
+          <button onClick={onClose} className="modalFechar">
             ✕
           </button>
         </div>
-        <div className="modal-meio">
-          <div className="imagem-container">
+        <div className="modalMeio">
+          <div className="imagemContainer">
             <img
               src={pokemon.images.small}
               alt={pokemon.name}
               className="imagem"
             />
           </div>
-          <div className="tipos-modal">
+          <div className="tiposModal">
             {pokemon.types.map((tipo) => (
-              <span className="tipo-modal" key={tipo}>
+              <span className="tipoModal" key={tipo}>
                 {tipo}
               </span>
             ))}

@@ -1,17 +1,19 @@
 import React from "react";
-import "./Fraquezas.css";
+import CatchingPokemonTwoToneIcon from "@mui/icons-material/CatchingPokemonTwoTone";
 
-const Fraquezas = ({ weaknesses }) => {
+const Fraquezas = ({ fraquezas }) => {
   return (
     <div className="fraquezas">
       <div className="tituloDados">
-        <p className="icone">icone</p>
+        <p className="icone">
+          <CatchingPokemonTwoToneIcon />
+        </p>
         <strong>
-          <p>fraquezas</p>
+          <h2>Weaknesses</h2>
         </strong>
       </div>
       <div className="fraquezasDados">
-        {weaknesses.map((fraqueza, index) => (
+        {fraquezas.map((fraqueza, index) => (
           <div className="fraqueza" key={index}>
             <h3>{fraqueza.type}</h3>
             <p>{fraqueza.value}</p>

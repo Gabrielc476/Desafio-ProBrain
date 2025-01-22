@@ -1,87 +1,114 @@
 .cards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 colunas de tamanho igual */
-  grid-template-rows: repeat(5, 1fr); /* 5 linhas de tamanho igual */
-  gap: 2em;
-  margin-left: 20%;
-  margin-right: 20%;
+  grid-template-columns: repeat(4, 1fr); /* 4 colunas por padrão */
+  grid-template-rows: auto;
+  gap: 5em; /* Gap reduzido */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  padding: 0 1em;
+  justify-content: center; /* Centraliza o grid */
+  margin-bottom: 2%;
 }
 
-.pagination {
+/* Responsividade para dispositivos menores */
+@media (max-width: 1200px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas em telas menores */
+  }
+}
+
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .cards {
+    grid-template-columns: 1fr; /* 1 coluna em celulares */
+  }
+}
+
+/* Lista de Pokémons */
+.listaPokemons {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.5em;
-  margin-top: 20px;
-  margin-bottom: 20px; /* Garante que a paginação tenha um espaçamento adequado abaixo */
+  width: 100%;
+  padding: 1em;
 }
 
-.pagination button {
-  padding: 10px 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.pagination button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-.pagination .page-number {
-  background-color: #f4f4f4;
-  color: #000;
-  border: 1px solid #ccc;
-}
-
-.pagination .page-number.active {
-  background-color: #007bff;
-  color: white;
-  font-weight: bold;
-}
-
-.pagination button:hover:not(:disabled),
-.pagination .page-number:hover {
-  background-color: #0056b3;
-}
-
+/* Filtro de categorias */
 .filtragem {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin-top: 5em;
-  margin-bottom: 3em;
-  margin-right: 6em;
+  align-items: flex-start;
+  max-width: 600px;
+  margin: 2em 1em;
+  flex-wrap: wrap; /* Permite quebrar linha em dispositivos menores */
+  gap: 1em; /* Reduz o espaço entre os elementos */
 }
 
-.toggleCategoriasButton {
-  background: none;
+.filtroCategoria {
+  flex: 1;
+  margin: 0.5em;
 }
 
+.filtragemCategoria {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em; /* Reduz o espaçamento entre os checkboxes */
+}
+
+/* Título de categorias e filtro */
 .filtroCategoriaTitulo {
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
 }
 
-.listaPokemons {
+/* Paginação */
+.paginacao {
   display: flex;
-  flex-direction: column; /* Alterado para coluna para garantir o layout desejado */
   justify-content: center;
   align-items: center;
-  width: 100%; /* Garantir que a lista ocupe toda a largura */
+  flex-wrap: wrap; /* Adapta os botões em várias linhas, se necessário */
+  gap: 0.5em;
+  margin: 20px 1em;
 }
 
-.listaPokemons .cards {
-  width: 80%; /* Ajuste da largura para não ficar colado nas bordas */
+.paginacao button {
+  flex: 1 1 auto; /* Permite que os botões se ajustem ao tamanho disponível */
+  max-width: 150px; /* Limita o tamanho máximo */
 }
 
+/* Ajuste de tamanhos menores */
+@media (max-width: 600px) {
+  .paginacao {
+    flex-direction: column; /* Alinha os botões verticalmente */
+    gap: 0.5rem;
+  }
+
+  .paginacao button {
+    width: 100%; /* Botões ocupam toda a largura */
+  }
+}
+
+/* Total de Pokémons */
 .total {
   display: flex;
   flex-direction: row;
-  margin-bottom: 10px;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
+  margin-bottom: 1em;
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+  .total {
+    flex-direction: column; /* Alinha texto e ícone verticalmente */
+  }
 }

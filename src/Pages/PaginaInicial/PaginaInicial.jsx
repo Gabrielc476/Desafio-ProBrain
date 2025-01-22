@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
 import instancia from "../../API/axios";
-import "./PaginaInicial.css";
-import Card from "../../Componentes/Card/Card";
-import Modal from "../../Componentes/Modal/Modal";
-import PesquisaInput from "../../Componentes/PesquisaInput/PesquisaInput";
-import CategoriaInput from "../../Componentes/CategoriaInput/CategoriaInput";
-import LoadingPokebola from "../../Componentes/LoadingPokebola/LoadingPokebola";
+import "./paginaInicial.css";
+import Card from "../../Componentes/Card/card";
+import Modal from "../../Componentes/Modal/modal";
+import PesquisaInput from "../../Componentes/PesquisaInput/pesquisaInput";
+import CategoriaInput from "../../Componentes/CategoriaInput/categoriaInput";
+import LoadingPokebola from "../../Componentes/LoadingPokebola/loadingPokebola";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import CatchingPokemonTwoToneIcon from "@mui/icons-material/CatchingPokemonTwoTone";
-import Paginacao from "../../Componentes/Paginacao/Paginacao";
-import { aplicarFiltros } from "../../Strategies/aplicarFiltros"; // Importando a função de Strategy
+import Paginacao from "../../Componentes/Paginacao/paginacao";
+import { aplicarFiltros } from "../../Estrategias/aplicarFiltros"; // Importando a função de Strategy
 
 const PaginaInicial = () => {
   const [pokemons, setPokemons] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filtroPesquisa, setFiltroPesquisa] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 20;
+  const [paginaAtual, setPaginaAtual] = useState(1);
+  const itensPorPagina = 20;
   const [modal, setModal] = useState(false);
   const [selectedPokemon, setSelectedPokemon] = useState(null);
   const [filtroCategoria, setFiltroCategoria] = useState({});
@@ -42,11 +42,11 @@ const PaginaInicial = () => {
     aplicarFiltros(pokemon, filtroPesquisa, filtroCategoria)
   );
 
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const currentPokemons = pokemonsFiltrados.slice(startIndex, endIndex);
+  const inicioIndex = (paginaAtual - 1) * itensPorPagina;
+  const fimIndex = inicioIndex + itensPorPagina;
+  const pokemonsAtuais = pokemonsFiltrados.slice(inicioIndex, fimIndex);
 
-  const totalPages = Math.ceil(pokemonsFiltrados.length / itemsPerPage);
+  const paginasTotais = Math.ceil(pokemonsFiltrados.length / itensPorPagina);
 
   const abrirModal = (pokemon) => {
     setSelectedPokemon(pokemon);
@@ -88,7 +88,7 @@ const PaginaInicial = () => {
               <p>Total: {pokemonsFiltrados.length} pokémons</p>
             </div>
             <div className="cards">
-              {currentPokemons.map((pokemon) => (
+              {pokemonsAtuais.map((pokemon) => (
                 <Card
                   key={pokemon.id}
                   pokemon={pokemon}
@@ -97,9 +97,9 @@ const PaginaInicial = () => {
               ))}
             </div>
             <Paginacao
-              currentPage={currentPage}
-              totalPages={totalPages}
-              setCurrentPage={setCurrentPage}
+              paginaAtual={paginaAtual}
+              paginasTotais={paginasTotais}
+              setPaginaAtual={setPaginaAtual}
             />
           </div>
           {modal && selectedPokemon && (
