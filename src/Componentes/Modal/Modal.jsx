@@ -1,5 +1,7 @@
 import DadosCarta from "../DadosCarta/dadosCarta";
+
 import "./modal.css";
+import TipoModal from "./tipoModal";
 
 const Modal = ({ pokemon, onClose }) => {
   return (
@@ -21,9 +23,7 @@ const Modal = ({ pokemon, onClose }) => {
           </div>
           <div className="tiposModal">
             {pokemon.types.map((tipo) => (
-              <span className="tipoModal" key={tipo}>
-                {tipo}
-              </span>
+              <TipoModal tipo={tipo} />
             ))}
           </div>
         </div>

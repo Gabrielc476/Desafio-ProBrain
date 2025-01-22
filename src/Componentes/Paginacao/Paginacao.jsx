@@ -1,34 +1,29 @@
 import React from "react";
+import Pagination from "@mui/material/Pagination";
+import PaginationItem from "@mui/material/PaginationItem";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const Paginacao = ({ paginaAtual, paginasTotais, setPaginaAtual }) => {
-  const numerosPaginas = Array.from({ length: paginasTotais }, (_, i) => i + 1);
+  const handlePageChange = (event, value) => {
+    setPaginaAtual(value);
+  };
 
   return (
-    <div className="paginacao">
-      <button
-        onClick={() => setPaginaAtual((prev) => Math.max(prev - 1, 1))}
-        disabled={paginaAtual === 1}
-      >
-        {"<"}
-      </button>
-      {numerosPaginas.map((pagina) => (
-        <button
-          key={pagina}
-          className={`numeroPagina ${pagina === paginaAtual ? "active" : ""}`}
-          onClick={() => setPaginaAtual(pagina)}
-        >
-          {pagina}
-        </button>
-      ))}
-      <button
-        onClick={() =>
-          setPaginaAtual((prev) => Math.min(prev + 1, paginasTotais))
-        }
-        disabled={paginaAtual === paginasTotais}
-      >
-        {">"}
-      </button>
-    </div>
+    <Pagination
+      count={paginasTotais}
+      page={paginaAtual}
+      onChange={handlePageChange}
+      renderItem={(item) => (
+        <PaginationItem
+          slots={{
+            previous: ArrowBackIcon,
+            next: ArrowForwardIcon,
+          }}
+          {...item}
+        />
+      )}
+    />
   );
 };
 
