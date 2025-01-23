@@ -17,3 +17,15 @@
   padding: 10px;
   width: 33%;
 }
+
+@media (max-width: 768px) {
+  .dadosCarta {
+    flex-direction: column; /* Organiza em colunas */
+  }
+
+  .ataques,
+  .fraquezas,
+  .habilidades {
+    width: 100%; /* Largura total em dispositivos menores */
+  }
+}

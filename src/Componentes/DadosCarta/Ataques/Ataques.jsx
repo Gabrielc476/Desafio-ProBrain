@@ -9,7 +9,7 @@ const Ataques = ({ ataques }) => {
           <CatchingPokemonTwoToneIcon />
         </p>
         <strong>
-          <h2>attacks</h2>
+          <h2>Attacks</h2>
         </strong>
       </div>
       <div className="ataqueDados">

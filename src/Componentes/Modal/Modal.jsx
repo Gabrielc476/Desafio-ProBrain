@@ -1,5 +1,4 @@
 import DadosCarta from "../DadosCarta/dadosCarta";
-
 import "./modal.css";
 import TipoModal from "./tipoModal";
 

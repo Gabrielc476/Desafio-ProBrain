@@ -4,25 +4,25 @@ const TipoModal = ({ tipo }) => {
   const selecionarCor = (tipo) => {
     switch (tipo) {
       case "Fire":
-        return "red-orange"; // laranja avermelhado
+        return "#ff5a01"; // laranja avermelhado
       case "Water":
-        return "blue"; // azul
+        return "#5ddfff"; // azul
       case "Grass":
-        return "green"; // verde
+        return "#00ff11"; // verde
       case "Colorless":
-        return "gray"; // cinza
+        return "#f9f9f9"; // cinza
       case "Psychic":
-        return "pink"; // rosa
+        return "#fb8fe2"; // rosa
       case "Darkness":
-        return "silver-dark"; // escuro prateado
+        return "#4c4c4c"; // escuro prateado
       case "Fighting":
-        return "light-brown"; // marrom claro
+        return "#ffc568"; // marrom claro
       case "Metal":
         return "silver"; // prata
       case "Lightning":
-        return "yellow"; // amarelo
+        return "#fff00f"; // amarelo
       case "Dragon":
-        return "gold"; // dourado
+        return "#ffce00"; // dourado
       default:
         return "transparent"; // valor padrão
     }
