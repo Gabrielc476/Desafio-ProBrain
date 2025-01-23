@@ -4,8 +4,7 @@ import "./navbar.css";
 const Navbar = () => {
   return (
     <div className="navbar">
-      <p>pokemon</p>
-      <p>documentação</p>
+      <img src="/pokemon-23.svg" alt="pokemon" />
     </div>
   );
 };
